@@ -1,0 +1,10 @@
+/* Empty. Add your own CSS if you like */
+.tit{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.boton{
+	border: 2px;
+}
