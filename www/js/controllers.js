@@ -11,9 +11,20 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+
 angular.module('starter.controllers', [])
 
 .controller("Registro", function($scope, $rootScope){
+  $scope.obtener = function(usuario){
+    firebase.auth().createUserWithEmailAndPassword(usuario.Correo, usuario.Contra).then(function Listo(x){
+      swal("Listo", "Registro correctamente", "success" );
+    }).catch(function(error) {
+       // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      swal("Error",errorMessage, "error");
+    });
+  }
 
 })
 

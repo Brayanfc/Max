@@ -1,21 +1,32 @@
-<div class="container">
-	<div class="row">
+<div class="container imagendefondo">
+	<div class="row centrado">
 		<div class="col">
 			<h1 class="tit">REGISTRO</h1>
 		</div>	
 	</div>
-	<div class="row">
-		<div class="col">
+	<br/><br/>
+	<div class="row centrado ">
+		<div class="col-md">
 			<div class="list">
   				<label class="item item-input">
-    				<input type="text" placeholder="nombre">
+    				<span class="input-label on">Correo</span>
+    				<input type="email" ng-model="usuario.Correo">
   				</label>
   				<label class="item item-input">
-    				<input type="password" placeholder="contraseña">
+  					<span class="input-label on">Contraseña</span>
+    				<input type="password" ng-model="usuario.Contra">
   				</label>
-  				<bottom class="boton">aceptar</bottom>
 			</div>
 		</div>
+	</div>
+	<br/>
+	<div class="row centrado">
+		<div class="col-md centrado">
+			<button class="button reg" ng-click="obtener(usuario)">
+			Registrarse
+			</button>
+		</div>
+		
 	</div>
 </div>
 
