@@ -7,10 +7,10 @@
     messagingSenderId: "161381317937",
     appId: "1:161381317937:web:b9d85b7b8b06200df88410",
     measurementId: "G-4WJGE3TRY6"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
 
 angular.module('starter.controllers', [])
 
@@ -18,6 +18,9 @@ angular.module('starter.controllers', [])
   $scope.obtener = function(usuario){
     firebase.auth().createUserWithEmailAndPassword(usuario.Correo, usuario.Contra).then(function Listo(x){
       swal("Listo", "Registro correctamente", "success" );
+      firebase.database().ref("/usuario"+x.user.uid).set({
+        correo:usuario.Correo
+      })
     }).catch(function(error) {
        // Handle Errors here.
       var errorCode = error.code;
