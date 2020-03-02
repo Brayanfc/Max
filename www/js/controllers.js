@@ -20,7 +20,18 @@ angular.module('starter.controllers', [])
       swal("Listo", "Registro correctamente", "success" );
       firebase.database().ref("/usuario"+x.user.uid).set({
         correo:usuario.Correo
-      })
+      });
+      // Cerrar la sesión 
+      firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+
+
+
+
+
     }).catch(function(error) {
        // Handle Errors here.
       var errorCode = error.code;
@@ -31,7 +42,46 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
+  $scope.categoria = [
+  {
+    nombre: "Tv y Video",
+    icono: "ion-monitor"
+  },
+  {
+    nombre: "Celulares",
+    icono: "ion-android-call"
+  },
+  {
+    nombre: "Linea blanca",
+    icono: "ion-ios7-home"
+  },
+  {
+    nombre: "Videojuegos",
+    icono: "ion-game-controller-b"
+  },
+  {
+    nombre: "Electrodomesticos",
+    icono: "ion-coffee"
+  },
+  {
+    nombre: "Computadoras y Tablets",
+    icono: "ion-ios7-monitor"
+  },
+  {
+    nombre: "Audio",
+    icono: "ion-ios7-pause"
+  },
+  {
+    nombre: "Audio para Vehiculos",
+    icono: "ion-model-s"
+  },
+  {
+    nombre: "Camaras y Drones",
+    icono: "ion-ios7-camera"
+  }
+  ]
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
